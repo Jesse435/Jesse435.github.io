@@ -214,8 +214,6 @@
       margin-bottom: 2rem;
     }
 
-    .stat-item {}
-
     .stat-number {
       font-family: 'DM Serif Display', serif;
       font-size: 2.4rem;
@@ -294,8 +292,6 @@
 
     .project-card.visible { opacity: 1; transform: translateY(0); }
 
-    .project-meta {}
-
     .project-number {
       font-family: 'DM Mono', monospace;
       font-size: 0.7rem;
@@ -330,12 +326,17 @@
       animation: pulse 2s infinite;
     }
 
+    .status-dot-client {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--highlight);
+      animation: pulse 2s infinite;
+    }
+
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
     }
-
-    .project-body {}
 
     .project-desc {
       font-size: 1rem;
@@ -402,6 +403,20 @@
 
     .project-link:hover { color: var(--highlight); border-color: var(--highlight); }
 
+    .client-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--highlight);
+      border: 1px solid var(--highlight);
+      padding: 0.2rem 0.6rem;
+      margin-top: 0.75rem;
+    }
+
     /* ── ABOUT ── */
     #about { border-top: 1px solid var(--border); }
 
@@ -419,10 +434,7 @@
       margin-bottom: 1.25rem;
     }
 
-    .about-text p strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
+    .about-text p strong { color: var(--ink); font-weight: 600; }
 
     .services-list {
       display: flex;
@@ -443,23 +455,11 @@
 
     .service-item:hover { background: var(--surface); }
 
-    .service-name {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--ink);
-    }
-
-    .service-arrow {
-      font-family: 'DM Mono', monospace;
-      color: var(--highlight);
-      font-size: 0.8rem;
-    }
+    .service-name { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
+    .service-arrow { font-family: 'DM Mono', monospace; color: var(--highlight); font-size: 0.8rem; }
 
     /* ── CONTACT ── */
-    #contact {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+    #contact { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
     .contact-inner {
       display: grid;
@@ -468,9 +468,7 @@
       align-items: center;
     }
 
-    .contact-left h2 {
-      margin-bottom: 1rem;
-    }
+    .contact-left h2 { margin-bottom: 1rem; }
 
     .contact-left p {
       font-size: 1rem;
@@ -506,11 +504,7 @@
       color: var(--highlight);
     }
 
-    .contact-value {
-      font-size: 0.95rem;
-      color: var(--ink);
-      font-weight: 500;
-    }
+    .contact-value { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
 
     /* ── FOOTER ── */
     footer {
@@ -587,8 +581,8 @@
         <div class="card-label">At a glance</div>
         <div class="stats-grid">
           <div class="stat-item">
-            <div class="stat-number">4+</div>
-            <div class="stat-label">Tools mastered</div>
+            <div class="stat-number">3</div>
+            <div class="stat-label">Projects shipped</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">AI</div>
@@ -608,8 +602,10 @@
           <span class="tech-tag">OpenAI</span>
           <span class="tech-tag">n8n</span>
           <span class="tech-tag">Relevance AI</span>
+          <span class="tech-tag">Flask</span>
           <span class="tech-tag">Discord API</span>
           <span class="tech-tag">Telegram API</span>
+          <span class="tech-tag">DigitalOcean</span>
           <span class="tech-tag">RSS Automation</span>
         </div>
       </div>
@@ -623,6 +619,7 @@
       <h2>Projects</h2>
     </div>
 
+    <!-- PROJECT 001 -->
     <div class="project-card">
       <div class="project-meta">
         <div class="project-number">Project 001</div>
@@ -657,24 +654,68 @@
       </div>
     </div>
 
-    <!-- Placeholder for next project -->
+    <!-- PROJECT 002 -->
     <div class="project-card">
       <div class="project-meta">
         <div class="project-number">Project 002</div>
-        <div class="project-name">Coming Soon</div>
+        <div class="project-name">Forex Signal Distribution System</div>
         <div class="project-status">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--highlight);display:inline-block;"></span>
-          In progress
+          <span class="status-dot"></span>
+          Live
+        </div>
+        <div class="client-badge">Client Project</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Built for a forex trader client — a mobile-first signal distribution system that takes structured input via a tap-based form, formats it into a professional signal using GPT-4o, and delivers it to multiple Telegram groups instantly. No manual copying, no delays, no formatting errors.
+        </p>
+        <div class="project-features">
+          <div class="feature-item">Mobile-friendly form with dropdown selectors for pairs, action, entry, SL and TP — zero typing required</div>
+          <div class="feature-item">GPT-4o formats raw input into a clean, consistent signal with risk disclaimer</div>
+          <div class="feature-item">Instant multi-group Telegram delivery in under 10 seconds from form submission</div>
+          <div class="feature-item">Deployed on DigitalOcean with Nginx reverse proxy and systemd auto-restart</div>
+          <div class="feature-item">Secured with UFW firewall and Fail2Ban intrusion prevention</div>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Flask</span>
+          <span class="project-tag">GPT-4o</span>
+          <span class="project-tag">Telegram API</span>
+          <span class="project-tag">n8n</span>
+          <span class="project-tag">DigitalOcean</span>
+          <span class="project-tag">Nginx</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 003 -->
+    <div class="project-card">
+      <div class="project-meta">
+        <div class="project-number">Project 003</div>
+        <div class="project-name">AI Content Generator</div>
+        <div class="project-status">
+          <span class="status-dot"></span>
+          Live
         </div>
       </div>
       <div class="project-body">
         <p class="project-desc">
-          Next project in development. Building out the portfolio with more real-world automation solutions across different industries.
+          A fully automated content pipeline that transforms any article URL into a complete week of Twitter/X content. Drop a link into a Google Sheet and the system extracts insights, generates tweets, threads, a video script, and an AI image — all deposited into a review sheet ready to post.
         </p>
+        <div class="project-features">
+          <div class="feature-item">Two-stage AI pipeline — first LLM extracts article insights, second generates all content formats</div>
+          <div class="feature-item">Generates 7 standalone tweets, a full thread, a short-form video script, and 3 image prompts per article</div>
+          <div class="feature-item">DALL-E 3 image generation with prompt engineering for Twitter-optimised visuals</div>
+          <div class="feature-item">Async webhook architecture bypasses n8n timeout limits for long-running AI tasks</div>
+          <div class="feature-item">Status tracking system prevents duplicate processing across workflow runs</div>
+        </div>
         <div class="project-tags">
-          <span class="project-tag">Automation</span>
-          <span class="project-tag">AI</span>
-          <span class="project-tag">Python</span>
+          <span class="project-tag">n8n</span>
+          <span class="project-tag">Relevance AI</span>
+          <span class="project-tag">GPT-4o</span>
+          <span class="project-tag">DALL-E 3</span>
+          <span class="project-tag">Google Sheets</span>
+          <span class="project-tag">Webhooks</span>
         </div>
       </div>
     </div>
@@ -749,7 +790,7 @@
         </a>
         <a href="https://github.com/Jesse435" target="_blank" class="contact-item">
           <span class="contact-type">GitHub</span>
-          <span class="contact-value">github.com/ikechijesse137</span>
+          <span class="contact-value">github.com/Jesse435</span>
         </a>
       </div>
     </div>
@@ -762,12 +803,9 @@
   </footer>
 
   <script>
-    // Scroll reveal for project cards
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.15 });
 
